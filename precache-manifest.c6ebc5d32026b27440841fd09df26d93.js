@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "f744f8c0204732e318b8747278a18b21",
+    "revision": "d2f6e7e93101eaf936ea4a256491ba18",
     "url": "/Panel-Builder/index.html"
   },
   {
-    "revision": "afff0f1593b4d18ea8eb",
+    "revision": "d19beb272ae303ba056f",
     "url": "/Panel-Builder/static/css/2.d072f558.chunk.css"
   },
   {
-    "revision": "cfd5367c0ff1adfc7bd3",
+    "revision": "2e2feea91f0134f0e29a",
     "url": "/Panel-Builder/static/css/main.b1bb2acb.chunk.css"
   },
   {
-    "revision": "afff0f1593b4d18ea8eb",
-    "url": "/Panel-Builder/static/js/2.95adb6a9.chunk.js"
+    "revision": "d19beb272ae303ba056f",
+    "url": "/Panel-Builder/static/js/2.b78f2ce7.chunk.js"
   },
   {
     "revision": "4d47ffde3dc69784e8e23fd910817ef8",
-    "url": "/Panel-Builder/static/js/2.95adb6a9.chunk.js.LICENSE.txt"
+    "url": "/Panel-Builder/static/js/2.b78f2ce7.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "cfd5367c0ff1adfc7bd3",
-    "url": "/Panel-Builder/static/js/main.f9b93dde.chunk.js"
+    "revision": "2e2feea91f0134f0e29a",
+    "url": "/Panel-Builder/static/js/main.e7b88c77.chunk.js"
   },
   {
     "revision": "ab709855b6c752e9ade8",
