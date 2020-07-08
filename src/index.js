@@ -1,11 +1,11 @@
 import React from 'react';
-import { render } from 'react-dom';
+import ReactDOM from 'react-dom';
 import './index.css';
 import 'semantic-ui-css/semantic.min.css'
 import PanelApp from './PanelApp';
 import * as serviceWorker from './serviceWorker';
 
-render(
+ReactDOM.render(
     <React.StrictMode>
         <PanelApp />
     </React.StrictMode>,
