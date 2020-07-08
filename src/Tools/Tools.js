@@ -1,6 +1,7 @@
 import React from 'react';
 import { Segment, Header, Grid, List, Button, Popup } from 'semantic-ui-react';
 import DateTime from './date-time';
+import Time from './time';
 
 const toolsColumn1 = [
     { icon: "calendar alternate outline", tool: "date-time", component: DateTime },
@@ -13,7 +14,7 @@ const toolsColumn1 = [
 ]
 
 const toolsColumn2 = [
-    { icon: "clock outline", tool: "time" },
+    { icon: "clock outline", tool: "time", component: Time },
     { icon: "ellipsis vertical", tool: "radio-group" },
     { icon: "tasks", tool: "checkbox-list" },
     { icon: "font", tool: "text-area" },
@@ -57,7 +58,7 @@ const Tools = (props) => {
                                 <List.Item key={i}>
                                     <Popup
                                         content={obj.tool}
-                                        trigger={<Button icon={obj.icon} key={i} onClick={handleClick} />}
+                                        trigger={<Button component={obj.component} icon={obj.icon} key={i} onClick={handleClick} />}
                                     />
                                 </List.Item>)
                             }

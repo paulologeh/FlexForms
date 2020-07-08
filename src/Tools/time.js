@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Input } from 'semantic-ui-react';
 
-const DateTime = (props) => {
+const Time = (props) => {
 
     const initialState = { increment: props.increment, value: props.initValue };
 
@@ -14,8 +14,8 @@ const DateTime = (props) => {
     }
 
     return (
-        <Input type="datetime-local" onChange={handleChange} />
+        <Input type="time" onChange={handleChange} />
     )
 }
 
-export default DateTime;
+export default Time;
