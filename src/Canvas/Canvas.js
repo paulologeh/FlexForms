@@ -1,18 +1,32 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Segment, Header } from 'semantic-ui-react';
 
-class Canvas extends Component {
-    state = {
+const Canvas = (props) => {
 
+    const [canvasBody, setCanvasBody] = useState([])
+
+    console.log(props.canvasTools)
+
+    const renderTools = () => {
+        // Marked for efficiency improvement
+        let newCanvasBody = []
+        for (let i in props.canvasTools) {
+            newCanvasBody.push(React.createElement(props.canvasTools[i], null))
+        }
+        setCanvasBody(newCanvasBody)
     }
 
-    render() {
-        return (
-            <Segment padded>
-                <Header as="h2">Canvas</Header>
-            </Segment>
-        )
-    }
+    useEffect(
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        () => { renderTools() }, [props]
+    )
+
+    return (
+        <Segment padded>
+            <Header as="h2">Canvas</Header>
+            {canvasBody}
+        </Segment>
+    )
 }
 
 export default Canvas;

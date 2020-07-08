@@ -5,22 +5,46 @@ import Canvas from './Canvas/Canvas';
 import ItemsPanel from './Items Panel/ItemsPanel';
 import Tools from './Tools/Tools';
 
-const canvasStyle = { width: '140vmin', height: '150vmin' }
+const canvasStyle = { width: '80vmin', height: '150vmin' }
 
 const toolsItemsStyle = { width: '35vmin' }
 
+function isInvalid(value) {
+  return (value === undefined || value === null) ? true : false
+}
+
 class PanelApp extends Component {
 
-  state = {}
+  state = {
+    canvasTools: []
+  }
+
+  componentDidMount() {
+    console.clear()
+  }
+
+  getSelectedTool = (tool) => {
+    if (isInvalid(tool)) {
+      return;
+    }
+
+    let newCanvasTools = Array.from(this.state.canvasTools)
+    newCanvasTools.push(tool)
+    this.setState({ canvasTools: newCanvasTools })
+    // console.log('tools')
+    // console.log(newCanvasTools)
+    return;
+  }
 
   render() {
+    // console.log(this.state.canvasTools)
     return (
       <div className="App">
         <Grid columns={2} padded>
           <Grid.Row>
-            <Grid.Column padded style={toolsItemsStyle}>
+            <Grid.Column style={toolsItemsStyle}>
               <Grid.Row stretched>
-                <Tools />
+                <Tools callbackTool={this.getSelectedTool} />
               </Grid.Row>
               <br />
               <Grid.Row stretched>
@@ -28,7 +52,7 @@ class PanelApp extends Component {
               </Grid.Row>
             </Grid.Column>
             <Grid.Column stretched style={canvasStyle}>
-              <Canvas />
+              <Canvas canvasTools={this.state.canvasTools} />
             </Grid.Column>
           </Grid.Row>
         </Grid>
