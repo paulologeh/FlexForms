@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Input } from 'semantic-ui-react';
 
-const Time = (props) => {
+const Text = (props) => {
 
     const initialState = props.initValue;
 
@@ -14,8 +14,8 @@ const Time = (props) => {
     }
 
     return (
-        <Input type="time" onChange={handleChange} />
+        <Input type="text" onChange={handleChange} />
     )
 }
 
-export default Time;
+export default Text;

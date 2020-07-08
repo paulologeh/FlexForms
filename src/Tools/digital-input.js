@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Input } from 'semantic-ui-react';
 
-const Time = (props) => {
+const DigitalInput = (props) => {
 
-    const initialState = props.initValue;
+    const initialState = { increment: props.increment, value: props.initValue };
 
     const [state, setState] = useState(initialState);
 
@@ -14,8 +14,8 @@ const Time = (props) => {
     }
 
     return (
-        <Input type="time" onChange={handleChange} />
+        <Input type="number" onChange={handleChange} />
     )
 }
 
-export default Time;
+export default DigitalInput;

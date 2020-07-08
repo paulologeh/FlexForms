@@ -5,7 +5,7 @@ import Canvas from './Canvas/Canvas';
 import ItemsPanel from './Items Panel/ItemsPanel';
 import Tools from './Tools/Tools';
 
-const canvasStyle = { width: '80vmin', height: '150vmin' }
+const canvasStyle = { width: '120vmin', height: '150vmin' }
 
 const toolsItemsStyle = { width: '35vmin' }
 

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Input } from 'semantic-ui-react';
+import { TextArea, Form } from 'semantic-ui-react';
 
-const Time = (props) => {
+const Textarea = (props) => {
 
     const initialState = props.initValue;
 
@@ -14,8 +14,10 @@ const Time = (props) => {
     }
 
     return (
-        <Input type="time" onChange={handleChange} />
+        <Form>
+            <TextArea onChange={handleChange} />
+        </Form>
     )
 }
 
-export default Time;
+export default Textarea;

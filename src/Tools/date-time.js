@@ -3,7 +3,7 @@ import { Input } from 'semantic-ui-react';
 
 const DateTime = (props) => {
 
-    const initialState = { increment: props.increment, value: props.initValue };
+    const initialState = props.initValue;
 
     const [state, setState] = useState(initialState);
 
