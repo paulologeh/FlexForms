@@ -11,7 +11,7 @@ const Canvas = (props) => {
         // Marked for efficiency improvement
         let newCanvasBody = []
         for (let i in props.canvasTools) {
-            newCanvasBody.push(React.createElement(props.canvasTools[i], null))
+            newCanvasBody.push(React.createElement(props.canvasTools[i], { key: i }))
         }
         setCanvasBody(newCanvasBody)
     }

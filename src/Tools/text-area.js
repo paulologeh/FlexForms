@@ -3,19 +3,15 @@ import { TextArea, Form } from 'semantic-ui-react';
 
 const Textarea = (props) => {
 
-    const initialState = props.initValue;
+    const initialState = props.initValue ? props.initValue : "";
 
     const [state, setState] = useState(initialState);
 
-    const handleChange = (data, event) => {
-        let newState = { ...state };
-        newState.value = data.value;
-        setState(newState);
-    }
+    const handleChange = (event, data) => { setState(data.value) }
 
     return (
         <Form>
-            <TextArea onChange={handleChange} />
+            <TextArea onChange={handleChange} value={state} />
         </Form>
     )
 }

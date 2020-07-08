@@ -1,11 +1,11 @@
 import React from 'react';
 import { Button } from 'semantic-ui-react';
 
-const ButtonComponent = (props) => {
+const Button2 = (props) => {
 
     return (
         <Button />
     )
 }
 
-export default ButtonComponent;
+export default Button2;

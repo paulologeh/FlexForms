@@ -3,18 +3,14 @@ import { Input } from 'semantic-ui-react';
 
 const Time = (props) => {
 
-    const initialState = props.initValue;
+    const initialState = props.initValue ? props.initValue : "";
 
     const [state, setState] = useState(initialState);
 
-    const handleChange = (data, event) => {
-        let newState = { ...state };
-        newState.value = data.value;
-        setState(newState);
-    }
+    const handleChange = (event, data) => { setState(data.value) }
 
     return (
-        <Input type="time" onChange={handleChange} />
+        <Input type="time" onChange={handleChange} value={state} />
     )
 }
 

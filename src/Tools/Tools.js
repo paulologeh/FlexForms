@@ -3,8 +3,8 @@ import { Segment, Header, Grid, List, Button, Popup } from 'semantic-ui-react';
 /* Custom components */
 import DateTime from './date-time';
 import Time from './time';
-import ButtonComponent from './button';
-import CheckboxComponent from './checkbox';
+import Button2 from './button';
+import Checkbox2 from './checkbox';
 import Radio from './radio';
 import Text from './text';
 import Textarea from './text-area';
@@ -14,7 +14,7 @@ import DigitalInput from './digital-input'
 const toolsColumn1 = [
     { icon: "calendar alternate outline", tool: "date-time", component: DateTime },
     { icon: "dot circle outline", tool: "radio", component: Radio },
-    { icon: "check square outline", tool: "checkbox", component: CheckboxComponent },
+    { icon: "check square outline", tool: "checkbox", component: Checkbox2 },
     { icon: "text cursor", tool: "text", component: Text },
     { icon: "keyboard outline", tool: "digit input", component: DigitalInput },
     { icon: "align justify", tool: "list" },
@@ -28,7 +28,7 @@ const toolsColumn2 = [
     { icon: "font", tool: "text-area", component: Textarea },
     { icon: "sliders horizontal", tool: "slider" },
     { icon: "dropdown", tool: "dropdown" },
-    { icon: "square outline", tool: "button", component: ButtonComponent }
+    { icon: "square outline", tool: "button", component: Button2 }
 ]
 
 const Tools = (props) => {

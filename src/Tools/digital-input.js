@@ -7,14 +7,10 @@ const DigitalInput = (props) => {
 
     const [state, setState] = useState(initialState);
 
-    const handleChange = (data, event) => {
-        let newState = { ...state };
-        newState.value = data.value;
-        setState(newState);
-    }
+    const handleChange = (event, data) => { setState(data.value); }
 
     return (
-        <Input type="number" onChange={handleChange} />
+        <Input type="number" onChange={handleChange} value={state} />
     )
 }
 

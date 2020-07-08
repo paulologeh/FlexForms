@@ -1,20 +1,17 @@
 import React, { useState } from 'react';
 import { Checkbox } from 'semantic-ui-react';
 
-const CheckboxComponent = (props) => {
+const Checkbox2 = (props) => {
 
-    const initialState = props.initValue;
+    const initialState = props.initValue ? props.initValue : false;
 
     const [state, setState] = useState(initialState);
 
-    const toggle = () => {
-        let oldState = state;
-        setState(!oldState);
-    }
+    const toggle = () => { setState(!state); }
 
     return (
-        <Checkbox onClick={toggle} />
+        <Checkbox onClick={toggle} checked={state} />
     )
 }
 
-export default CheckboxComponent;
+export default Checkbox2;

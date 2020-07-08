@@ -3,17 +3,14 @@ import { Radio as Radio2 } from 'semantic-ui-react';
 
 const Radio = (props) => {
 
-    const initialState = props.initValue;
+    const initialState = props.initValue ? false : props.initValue;
 
     const [state, setState] = useState(initialState);
 
-    const toggle = () => {
-        let oldState = state;
-        setState(!oldState);
-    }
+    const toggle = () => { setState(!state); }
 
     return (
-        <Radio2 onClick={toggle} />
+        <Radio2 onClick={toggle} checked={state} />
     )
 }
 
