@@ -10,7 +10,10 @@ const DateTime = (props) => {
     const handleChange = (event, data) => { setState(data.value); }
 
     return (
-        <Input type="datetime-local" onChange={handleChange} value={state} />
+        <span>
+            <label></label>
+            <Input style={{ width: 'inherit', maxWidth: '120px' }} type="datetime-local" onChange={handleChange} onClick={props.onClick} value={state} />
+        </span>
     )
 }
 

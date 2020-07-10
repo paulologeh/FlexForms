@@ -1,7 +1,9 @@
 import React from 'react';
 import { Segment, Header, Input, Container, TextArea, Form } from 'semantic-ui-react';
-
-const ItemsPanel = () => {
+/*
+Customisable view based on tool selected 
+*/
+const ItemsPanel = (selectedItemId) => {
 
     return (
         <Segment secondary padded >

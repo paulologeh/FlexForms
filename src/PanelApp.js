@@ -4,10 +4,11 @@ import './App.css';
 import Canvas from './Canvas/Canvas';
 import ItemsPanel from './Items Panel/ItemsPanel';
 import Tools from './Tools/Tools';
+import { StoreProvider } from './Store';
 
-const canvasStyle = { width: '120vmin', height: '150vmin' }
+const canvasStyle = { flexGrow: 1, height: '100%' }
 
-const toolsItemsStyle = { width: '35vmin' }
+const toolsItemsStyle = { width: '200px' }
 
 function isInvalid(value) {
   return (value === undefined || value === null) ? true : false
@@ -31,13 +32,10 @@ class PanelApp extends Component {
     let newCanvasTools = Array.from(this.state.canvasTools)
     newCanvasTools.push(tool)
     this.setState({ canvasTools: newCanvasTools })
-    // console.log('tools')
-    // console.log(newCanvasTools)
     return;
   }
 
   render() {
-    // console.log(this.state.canvasTools)
     return (
       <div className="App">
         <Grid columns={2} padded>
@@ -48,11 +46,15 @@ class PanelApp extends Component {
               </Grid.Row>
               <br />
               <Grid.Row stretched>
-                <ItemsPanel />
+                <StoreProvider>
+                  <ItemsPanel />
+                </StoreProvider>
               </Grid.Row>
             </Grid.Column>
-            <Grid.Column stretched style={canvasStyle}>
-              <Canvas canvasTools={this.state.canvasTools} />
+            <Grid.Column stretched style={canvasStyle} a>
+              <StoreProvider>
+                <Canvas canvasTools={this.state.canvasTools} />
+              </StoreProvider>
             </Grid.Column>
           </Grid.Row>
         </Grid>

@@ -38,8 +38,6 @@ const Tools = (props) => {
     }
 
     const handleClick = (data, event) => {
-        console.log("Clicked " + event.icon)
-        // console.log(event.component)
         sendComponent(event.component)
     }
 
