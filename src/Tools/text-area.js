@@ -11,7 +11,7 @@ const Textarea = (props) => {
 
     return (
         <Form>
-            <TextArea onChange={handleChange} value={state} />
+            <TextArea style={{ maxWidth: '200px' }} onChange={handleChange} value={state} />
         </Form>
     )
 }
