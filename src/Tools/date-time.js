@@ -12,7 +12,7 @@ const DateTime = (props) => {
     return (
         <span>
             <label></label>
-            <Input style={{ width: 'inherit', maxWidth: '120px' }} type="datetime-local" onChange={handleChange} onClick={props.onClick} value={state} />
+            <Input style={{ maxWidth: '120px' }} type="datetime-local" onChange={handleChange} onClick={props.onClick} value={state} />
         </span>
     )
 }

@@ -10,7 +10,7 @@ const Time = (props) => {
     const handleChange = (event, data) => { setState(data.value) }
 
     return (
-        <Input type="time" onChange={handleChange} value={state} />
+        <Input style={{ maxWidth: '100px' }} type="time" onChange={handleChange} value={state} />
     )
 }
 

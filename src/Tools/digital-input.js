@@ -10,7 +10,7 @@ const DigitalInput = (props) => {
     const handleChange = (event, data) => { setState(data.value); }
 
     return (
-        <Input type="number" onChange={handleChange} value={state} />
+        <Input style={{ maxWidth: '100px' }} type="number" onChange={handleChange} value={state} />
     )
 }
 

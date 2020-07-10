@@ -10,7 +10,7 @@ const Text = (props) => {
     const handleChange = (event, data) => { setState(data.value); }
 
     return (
-        <Input type="text" onChange={handleChange} value={state} />
+        <Input style={{ maxWidth: '100px' }} type="text" onChange={handleChange} value={state} />
     )
 }
 
