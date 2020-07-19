@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Grid } from 'semantic-ui-react';
+import { Grid, Menu, Container, Dropdown, Image } from 'semantic-ui-react';
 import './App.css';
 import Canvas from './Canvas/Canvas';
 import ItemsPanel from './Items Panel/ItemsPanel';
@@ -10,6 +10,28 @@ import { isObjInvalid } from './helpers';
 const canvasStyle = { flexGrow: 1, height: '100%' }
 
 const toolsItemsStyle = { width: '200px' }
+
+const PanelMenu = () => {
+
+  return (
+    <Menu fixed='top' inverted>
+      <Container>
+        <Menu.Item as='a' header>
+          <Image size='mini' src={require('./Images/icon2.png')} style={{ marginRight: '1.5em' }} />
+          Panel Builder
+        </Menu.Item>
+        <Menu.Item as='a'>Home</Menu.Item>
+        <Dropdown item simple text='Options'>
+          <Dropdown.Menu>
+            <Dropdown.Item>Save</Dropdown.Item>
+            <Dropdown.Item>Clear Canvas</Dropdown.Item>
+            <Dropdown.Item>Export URL</Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
+      </Container>
+    </Menu >
+  )
+}
 
 class PanelApp extends Component {
 
@@ -32,28 +54,31 @@ class PanelApp extends Component {
 
   render() {
     return (
-      <div className="App">
-        <Grid columns={2} padded>
-          <Grid.Row>
-            <Grid.Column style={toolsItemsStyle}>
-              <Grid.Row stretched>
-                <Tools callbackTool={this.getSelectedTool} />
+      <StoreProvider>
+        <div>
+          <div className="menu-header">
+            <PanelMenu />
+          </div>
+          <div className="App">
+            <Grid columns={2} padded>
+              <Grid.Row>
+                <Grid.Column style={toolsItemsStyle}>
+                  <Grid.Row stretched>
+                    <Tools callbackTool={this.getSelectedTool} />
+                  </Grid.Row>
+                  <br />
+                  <Grid.Row stretched>
+                    <ItemsPanel />
+                  </Grid.Row>
+                </Grid.Column>
+                <Grid.Column stretched style={canvasStyle}>
+                  <Canvas canvasTool={this.state.canvasTool} />
+                </Grid.Column>
               </Grid.Row>
-              <br />
-              <Grid.Row stretched>
-                <StoreProvider>
-                  <ItemsPanel />
-                </StoreProvider>
-              </Grid.Row>
-            </Grid.Column>
-            <Grid.Column stretched style={canvasStyle} a>
-              <StoreProvider>
-                <Canvas canvasTool={this.state.canvasTool} />
-              </StoreProvider>
-            </Grid.Column>
-          </Grid.Row>
-        </Grid>
-      </div>
+            </Grid>
+          </div>
+        </div>
+      </StoreProvider>
     )
   }
 }

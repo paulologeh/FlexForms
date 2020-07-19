@@ -3,7 +3,6 @@ import { Segment, Header, Grid, List, Button, Popup } from 'semantic-ui-react';
 /* Custom components */
 import DateTime from './date-time';
 import Time from './time';
-import Button2 from './button';
 import Checkbox2 from './checkbox';
 import Radio from './radio';
 import Text from './text';
@@ -28,7 +27,7 @@ const toolsColumn2 = [
     { icon: "font", tool: "text-area", component: Textarea },
     { icon: "sliders horizontal", tool: "slider" },
     { icon: "dropdown", tool: "dropdown" },
-    { icon: "square outline", tool: "button", component: Button2 }
+    { icon: "square outline", tool: "button" }
 ]
 
 const Tools = (props) => {

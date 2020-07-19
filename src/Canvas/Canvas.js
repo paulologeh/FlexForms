@@ -8,6 +8,14 @@ let object_template = { id: '', label: '', tooltip: '', helpbox: '', conditions:
 
 var counter = 0;
 
+const handleToolClick = (localId, localStore, localUpdateStore) => {
+    let tempStore = JSON.parse(JSON.stringify(localStore));
+    tempStore.selectedTool = localId;
+    localUpdateStore(tempStore)
+    console.log(`updated store from component ${localId}`)
+    // console.log(localStore)
+}
+
 const Canvas = (props) => {
 
     const [canvasBody, setCanvasBody] = useState([])
@@ -23,24 +31,22 @@ const Canvas = (props) => {
 
     const addToolToCanvas = () => {
         if (isObjInvalid(props.canvasTool)) {
-            console.log('Cannot recognise passed tool')
             return;
         }
         let newCanvasBody = [...canvasBody] // make copy of state
-        let compProps = { id: 'Tool' + (++counter), key: counter }
+        let tempId = 'Tool' + (++counter);
+        let compProps = { id: tempId, key: counter, onToolClick: handleToolClick }
         addToStore(compProps)
-        let newTool = React.createElement(props.canvasTool.tool, compProps)
+        let newTool = React.createElement(props.canvasTool.tool, compProps, null)
         newCanvasBody.push(newTool)
         setCanvasBody(newCanvasBody)
     }
 
     useEffect(
         () => {
-            addToolToCanvas()
-            console.log(store)
+            addToolToCanvas();
         }, [props]
     )
-
 
     return (
         <Segment padded>
