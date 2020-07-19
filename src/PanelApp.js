@@ -7,9 +7,11 @@ import Tools from './Tools/Tools';
 import { StoreProvider } from './Store';
 import { isObjInvalid } from './helpers';
 
-const canvasStyle = { flexGrow: 1, height: '100%' }
+const canvasStyle = { flexGrow: 1, height: '100%' };
 
-const toolsItemsStyle = { width: '200px' }
+const toolsItemsStyle = { width: '200px' };
+
+const logo = require('./Images/icon2.png');
 
 const PanelMenu = () => {
 
@@ -17,7 +19,7 @@ const PanelMenu = () => {
     <Menu fixed='top' inverted>
       <Container>
         <Menu.Item as='a' header>
-          <Image size='mini' src={require('./Images/icon2.png')} style={{ marginRight: '1.5em' }} />
+          <Image size='mini' src={logo} style={{ marginRight: '1.5em' }} />
           Panel Builder
         </Menu.Item>
         <Menu.Item as='a'>Home</Menu.Item>

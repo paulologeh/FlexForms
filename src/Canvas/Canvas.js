@@ -9,7 +9,7 @@ let object_template = { id: '', label: '', tooltip: '', helpbox: '', conditions:
 var counter = 0;
 
 const handleToolClick = (localId, localStore, localUpdateStore) => {
-    let tempStore = JSON.parse(JSON.stringify(localStore));
+    let tempStore = JSON.parse(JSON.stringify(localStore)); // deep copy
     tempStore.selectedTool = localId;
     localUpdateStore(tempStore)
     console.log(`updated store from component ${localId}`)
