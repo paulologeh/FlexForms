@@ -5,19 +5,16 @@ import Canvas from './Canvas/Canvas';
 import ItemsPanel from './Items Panel/ItemsPanel';
 import Tools from './Tools/Tools';
 import { StoreProvider } from './Store';
+import { isObjInvalid } from './helpers';
 
 const canvasStyle = { flexGrow: 1, height: '100%' }
 
 const toolsItemsStyle = { width: '200px' }
 
-function isInvalid(value) {
-  return (value === undefined || value === null) ? true : false
-}
-
 class PanelApp extends Component {
 
   state = {
-    canvasTools: []
+    canvasTool: null
   }
 
   componentDidMount() {
@@ -25,13 +22,11 @@ class PanelApp extends Component {
   }
 
   getSelectedTool = (tool) => {
-    if (isInvalid(tool)) {
+    if (isObjInvalid(tool)) {
+      console.log('ERROR! -> Tool not recognised')
       return;
     }
-
-    let newCanvasTools = Array.from(this.state.canvasTools)
-    newCanvasTools.push(tool)
-    this.setState({ canvasTools: newCanvasTools })
+    this.setState({ canvasTool: { tool } })
     return;
   }
 
@@ -53,7 +48,7 @@ class PanelApp extends Component {
             </Grid.Column>
             <Grid.Column stretched style={canvasStyle} a>
               <StoreProvider>
-                <Canvas canvasTools={this.state.canvasTools} />
+                <Canvas canvasTool={this.state.canvasTool} />
               </StoreProvider>
             </Grid.Column>
           </Grid.Row>

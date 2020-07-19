@@ -1,8 +1,12 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect, useContext } from 'react';
 import { Segment, Header } from 'semantic-ui-react';
 import { Store } from '../Store';
+import { isObjInvalid } from '../helpers';
 
 let object_template = { id: '', label: '', tooltip: '', helpbox: '', conditions: [] }
+
+var counter = 0;
 
 const Canvas = (props) => {
 
@@ -17,22 +21,26 @@ const Canvas = (props) => {
         updateStore(newStore)
     }
 
-    const renderTools = () => {
-        // Marked for efficiency improvement
-        let newCanvasBody = []
-        for (let i in props.canvasTools) {
-            let compProps = { id: 'Tool' + i }
-            addToStore(compProps); // add id to store
-            compProps.key = i
-            newCanvasBody.push(React.createElement(props.canvasTools[i], compProps)); // create component with id
+    const addToolToCanvas = () => {
+        if (isObjInvalid(props.canvasTool)) {
+            console.log('Cannot recognise passed tool')
+            return;
         }
+        let newCanvasBody = [...canvasBody] // make copy of state
+        let compProps = { id: 'Tool' + (++counter), key: counter }
+        addToStore(compProps)
+        let newTool = React.createElement(props.canvasTool.tool, compProps)
+        newCanvasBody.push(newTool)
         setCanvasBody(newCanvasBody)
     }
 
     useEffect(
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-        () => { renderTools() }, [props]
+        () => {
+            addToolToCanvas()
+            console.log(store)
+        }, [props]
     )
+
 
     return (
         <Segment padded>
