@@ -22,9 +22,8 @@ const ItemsPanel = () => {
 
     useEffect(
         () => {
-            console.log('updated Store in itemspanel');
-            console.log(store);
             setSelectedProps();
+            // console.log(store)
         }, [store]
     )
 
@@ -35,7 +34,6 @@ const ItemsPanel = () => {
             }
             if (store.array[i].id === store.selectedTool) {
                 setState(store.array[i]);
-                console.log(store.array[i]);
                 break;
             }
         }
@@ -66,9 +64,6 @@ const ItemsPanel = () => {
     }
 
     const onToolPropChange = {
-        id: function (event, data) {
-            updateState('id', data.value);
-        },
         label: function (event, data) {
             updateState('label', data.value);
         },
@@ -87,8 +82,7 @@ const ItemsPanel = () => {
         <Segment secondary padded >
             <Container>
                 <Header as="h5">Items Panel</Header>
-                <label>ID</label>
-                <Input fluid type="text" size="small" value={state.id} onChange={onToolPropChange.id} />
+                <p>ID: {state.id}</p>
                 <label>Label</label>
                 <Input fluid type="text" size="small" value={state.label} onChange={onToolPropChange.label} />
                 <label>Tooltip</label>
