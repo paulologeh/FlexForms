@@ -27,7 +27,7 @@ const handleToolProps = (localId, localStore) => {
 }
 
 const handleComponentState = (storeObject, localState, localSetState) => {
-    let newState = { ...localSetState };
+    let newState = { ...localState };
     let keys = Object.keys(storeObject);
     for (let i in keys) {
         if (keys[i] === 'id' || keys[i] === 'conditions') {
