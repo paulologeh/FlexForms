@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Grid, Menu, Container, Dropdown, Image } from 'semantic-ui-react';
+import { Grid, Menu, Container, Dropdown } from 'semantic-ui-react';
 import './App.css';
 import Canvas from './Canvas/Canvas';
 import ItemsPanel from './Items Panel/ItemsPanel';
@@ -11,15 +11,12 @@ const canvasStyle = { flexGrow: 1, height: '100%' };
 
 const toolsItemsStyle = { width: '200px' };
 
-const logo = require('./Images/icon2.png');
-
 const PanelMenu = () => {
 
   return (
     <Menu fixed='top' inverted>
       <Container>
         <Menu.Item as='a' header>
-          <Image size='mini' src={logo} style={{ marginRight: '1.5em' }} />
           Panel Builder
         </Menu.Item>
         <Menu.Item as='a'>Home</Menu.Item>
