@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useContext, useEffect } from 'react';
-import { Segment, Header, Input, Container, TextArea, Form } from 'semantic-ui-react';
+import { Segment, Header, Input, Container, TextArea, Form, Button } from 'semantic-ui-react';
 import { Store } from '../Store';
 import { isObjInvalid } from '../helpers';
 /*
@@ -15,7 +15,7 @@ const initialState = {
     conditions: ['', '']
 }
 
-const ItemsPanel = () => {
+const ItemsPanel = (props) => {
 
     const [store, updateStore] = useContext(Store);
     const [state, setState] = useState(initialState);
@@ -78,6 +78,10 @@ const ItemsPanel = () => {
         }
     }
 
+    const deleteTool = () => {
+        props.callbackToolToDelete(state.id)
+    }
+
     return (
         <Segment secondary padded >
             <Container>
@@ -94,6 +98,7 @@ const ItemsPanel = () => {
                     <p><i>Example: Enable if ID1 == true</i></p>
                     {JSON.stringify(state.conditions)}
                 </Segment>
+                <Button onClick={deleteTool} negative size='tiny'>Delete Tool</Button>
             </Container>
         </Segment>
     )

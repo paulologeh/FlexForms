@@ -2,7 +2,7 @@ import React, { useState, createContext } from 'react';
 
 export const Store = createContext();
 
-const initial = {
+const initialStore = {
     selectedTool: '',
     array: [{
         id: 'test',
@@ -28,7 +28,7 @@ const initial = {
 
 export function StoreProvider(props) {
 
-    const [store, updateStore] = useState(initial);
+    const [store, updateStore] = useState(initialStore);
 
     return (
         <Store.Provider value={[store, updateStore]}>

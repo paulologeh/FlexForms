@@ -7,7 +7,8 @@ import Checkbox2 from './checkbox';
 import Radio from './radio';
 import Text from './text';
 import Textarea from './text-area';
-import DigitalInput from './digital-input'
+import DigitalInput from './digital-input';
+import Label from './static-label';
 
 
 const toolsColumn1 = [
@@ -25,7 +26,7 @@ const toolsColumn2 = [
     { icon: "ellipsis vertical", tool: "radio-group" },
     { icon: "tasks", tool: "checkbox-list" },
     { icon: "font", tool: "text-area", component: Textarea },
-    { icon: "sliders horizontal", tool: "slider" },
+    { icon: "heading", tool: "static-label", component: Label },
     { icon: "dropdown", tool: "dropdown" },
     { icon: "square outline", tool: "button" }
 ]

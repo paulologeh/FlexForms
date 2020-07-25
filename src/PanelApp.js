@@ -11,7 +11,11 @@ const canvasStyle = { flexGrow: 1, height: '100%' };
 
 const toolsItemsStyle = { width: '200px' };
 
-const PanelMenu = () => {
+const PanelMenu = (props) => {
+
+  const clearCanvas = () => {
+    props.callbackClear(true)
+  }
 
   return (
     <Menu fixed='top' inverted>
@@ -23,7 +27,7 @@ const PanelMenu = () => {
         <Dropdown item simple text='Options'>
           <Dropdown.Menu>
             <Dropdown.Item>Save</Dropdown.Item>
-            <Dropdown.Item>Clear Canvas</Dropdown.Item>
+            <Dropdown.Item onClick={clearCanvas}>Clear Canvas</Dropdown.Item>
             <Dropdown.Item>Export URL</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
@@ -35,7 +39,9 @@ const PanelMenu = () => {
 class PanelApp extends Component {
 
   state = {
-    canvasTool: null
+    canvasTool: null,
+    clear: false,
+    toolToDelete: null
   }
 
   componentDidMount() {
@@ -51,12 +57,52 @@ class PanelApp extends Component {
     return;
   }
 
+  callbackClear = (clear) => {
+    if (isObjInvalid(clear)) {
+      console.log('ERROR! -> Did not clear canvas');
+      return;
+    }
+    if (clear) {
+      console.log('Clearing canvas');
+      this.setState({ clear: true });
+    }
+  }
+
+  callbackCleared = (cleared) => {
+    if (isObjInvalid(cleared)) {
+      console.log('ERROR! -> Clear failed');
+      return;
+    }
+    if (cleared) {
+      this.setState({ clear: false });
+      console.log('Canvas cleared');
+    }
+  }
+
+  callbackToolToDelete = (tool) => {
+    if (isObjInvalid(tool)) {
+      console.log('ERROR! -> Did not delete tool');
+      return;
+    }
+    console.log('Deleting ' + tool);
+    this.setState({ toolToDelete: tool })
+  }
+
+  callbackDeleted = (deleted) => {
+    if (isObjInvalid(deleted)) {
+      console.log('ERROR! -> Delete failed');
+      return;
+    }
+    this.setState({ toolToDelete: null });
+    console.log('Deleted')
+  }
+
   render() {
     return (
       <StoreProvider>
         <div>
           <div className="menu-header">
-            <PanelMenu />
+            <PanelMenu callbackClear={this.callbackClear} />
           </div>
           <div className="App">
             <Grid columns={2} padded>
@@ -67,11 +113,17 @@ class PanelApp extends Component {
                   </Grid.Row>
                   <br />
                   <Grid.Row stretched>
-                    <ItemsPanel />
+                    <ItemsPanel callbackToolToDelete={this.callbackToolToDelete} />
                   </Grid.Row>
                 </Grid.Column>
                 <Grid.Column stretched style={canvasStyle}>
-                  <Canvas canvasTool={this.state.canvasTool} />
+                  <Canvas
+                    canvasTool={this.state.canvasTool}
+                    clear={this.state.clear}
+                    callbackCleared={this.callbackCleared}
+                    toolToDelete={this.state.toolToDelete}
+                    callbackDeleted={this.callbackDeleted}
+                  />
                 </Grid.Column>
               </Grid.Row>
             </Grid>
