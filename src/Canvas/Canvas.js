@@ -3,6 +3,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { Segment, Header } from 'semantic-ui-react';
 import { Store } from '../Store';
 import { isObjInvalid } from '../helpers';
+import Draggable from './Draggable';
 
 let object_template = { id: '', label: '', tooltip: '', helpbox: '', conditions: [] }
 
@@ -28,6 +29,9 @@ const handleToolProps = (localId, localStore) => {
 
 const handleComponentState = (storeObject, localState, localSetState) => {
     let newState = { ...localState };
+    if (isObjInvalid(storeObject)) {
+        return;
+    }
     let keys = Object.keys(storeObject);
     for (let i in keys) {
         if (keys[i] === 'id' || keys[i] === 'conditions') {
@@ -96,7 +100,7 @@ const Canvas = (props) => {
         }
         addToStore(compProps)
         let newTool = React.createElement(props.canvasTool.tool, compProps, null)
-        newCanvasBody.push(newTool)
+        newCanvasBody.push(<Draggable initialPos={{ x: 0, y: 0 }} key={counter}>{newTool}</Draggable>)
         setCanvasBody(newCanvasBody)
     }
 
@@ -136,12 +140,10 @@ const Canvas = (props) => {
         if (isObjInvalid(props.toolToDelete)) {
             return;
         }
-        setCanvasBody(canvasBody.filter(tool => tool.props.id !== props.toolToDelete));
+        setCanvasBody(canvasBody.filter(tool => tool.props.children.props.id !== props.toolToDelete));
         resetStore(true, props.toolToDelete)
         props.callbackDeleted(true);
     }
-
-    console.log(store)
 
     return (
         <Segment padded>
