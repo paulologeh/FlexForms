@@ -18,12 +18,13 @@ function isMobile() {
       check = true;
   })(navigator.userAgent || navigator.vendor || window.opera);
   return check;
-};
+}
 
 const NotSuitableForMobile = () => {
   return (
-    <Segment secondary color='green'>
-      <Header>Using a Mobile Device</Header>
+    <Segment compact secondary color='green'>
+      <Header as='h1' color='green' >FlexForms</Header>
+      <Header color='green'>Using a Mobile Device</Header>
       <p>Hi there,</p>
       <p>I see you are using a mobile device</p>
       <p>This application is not suitable for mobile devices. Please use a computer</p>
@@ -38,7 +39,7 @@ const PanelMenu = (props) => {
     props.callbackClear(true)
   }
 
-  const reload = (data, event) => {
+  const reload = () => {
     window.location.reload(false);
   }
 
@@ -52,7 +53,7 @@ const PanelMenu = (props) => {
           <Dropdown.Menu>
             <Dropdown.Item>Save</Dropdown.Item>
             <Dropdown.Item onClick={clearCanvas}>Clear Canvas</Dropdown.Item>
-            <Dropdown.Item>Export URL</Dropdown.Item>
+            <Dropdown.Item>Publish Form</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
       </Container>
