@@ -46,7 +46,7 @@ const PanelMenu = (props) => {
     <Menu fixed='top' color='green' inverted>
       <Container>
         <Menu.Item as='a' header color='green'>FlexForms</Menu.Item>
-        <Menu.Item as='a' onClick={() => reload}><Icon name='home' />Home</Menu.Item>
+        <Menu.Item as='a' onClick={reload}><Icon name='home' />Home</Menu.Item>
         <Menu.Item as='a'>Templates</Menu.Item>
         <Dropdown item simple text='Options'>
           <Dropdown.Menu>
