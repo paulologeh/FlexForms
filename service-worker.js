@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/FlexForms/precache-manifest.2137a773b942f1005ff5c2158b122d33.js"
+  "/FlexForms/precache-manifest.1b267ea9522541ab72f8aab3d1fe1c8b.js"
 );
 
 self.addEventListener('message', (event) => {
