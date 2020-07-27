@@ -1,4 +1,4 @@
-# React Panel Builder
+# FlexForms
 
 [Visit Application Here](https://paulologeh.github.io/Panel-Builder)
 
