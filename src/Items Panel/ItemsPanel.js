@@ -97,6 +97,7 @@ const ItemsPanel = (props) => {
                 <Segment>
                     <p><i>Example: Enable if ID1 == true</i></p>
                     {JSON.stringify(state.conditions)}
+                    <p><i>Not yet implemented</i></p>
                 </Segment>
                 <Button onClick={deleteTool} negative size='tiny'>Delete Tool</Button>
             </Container>

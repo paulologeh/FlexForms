@@ -1,6 +1,6 @@
 {
-  "name": "panel-app",
-  "homepage": "http://paulologeh.github.io/Panel-Builder",
+  "name": "flex-forms",
+  "homepage": "http://paulologeh.github.io/FlexForms",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

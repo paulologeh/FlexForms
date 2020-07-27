@@ -28,7 +28,7 @@ const toolsColumn2 = [
     { icon: "font", tool: "text-area", component: Textarea },
     { icon: "heading", tool: "static-label", component: Label },
     { icon: "dropdown", tool: "dropdown" },
-    { icon: "square outline", tool: "button" }
+    { icon: "square outline", tool: "submit" }
 ]
 
 const Tools = (props) => {
