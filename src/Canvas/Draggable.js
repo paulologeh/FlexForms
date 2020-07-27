@@ -39,8 +39,8 @@ class Draggable extends Component {
                 y: e.pageY - pos.top
             }
         });
-        e.stopPropagation();
-        e.preventDefault();
+        // e.stopPropagation();
+        // e.preventDefault();
     }
 
     onMouseUp = (e) => {

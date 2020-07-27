@@ -26,10 +26,13 @@ const Text = (props) => {
     }
 
     const handleChange = (event, data) => {
+        console.log('changing')
         let newState = { ...state };
         newState.value = data.value;
         setState(newState);
     }
+
+    console.log(state)
 
     const onToolClick = () => {
         props.onToolClick(props.id, store, updateStore)
