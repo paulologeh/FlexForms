@@ -43,19 +43,24 @@ const PanelMenu = (props) => {
     window.location.reload(false);
   }
 
+  const comingSoon = () => {
+    alert('Feature Coming Soon')
+  }
+
   return (
     <Menu fixed='top' color='green' inverted>
       <Container>
         <Menu.Item as='a' header color='green'>FlexForms</Menu.Item>
         <Menu.Item as='a' onClick={reload}><Icon name='home' />Home</Menu.Item>
-        <Menu.Item as='a'>Templates</Menu.Item>
+        <Menu.Item as='a' onClick={comingSoon}>Templates</Menu.Item>
         <Dropdown item simple text='Options'>
           <Dropdown.Menu>
-            <Dropdown.Item>Save</Dropdown.Item>
+            <Dropdown.Item onClick={comingSoon}>Save</Dropdown.Item>
             <Dropdown.Item onClick={clearCanvas}>Clear Canvas</Dropdown.Item>
-            <Dropdown.Item>Publish Form</Dropdown.Item>
+            <Dropdown.Item onClick={comingSoon}>Publish Form</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
+        <Menu.Item>Version 1.0 (In development)</Menu.Item>
       </Container>
     </Menu >
   )

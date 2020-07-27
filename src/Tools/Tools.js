@@ -31,6 +31,12 @@ const toolsColumn2 = [
     { icon: "square outline", tool: "submit" }
 ]
 
+const notyetImplemented = ["align justify", "clone outline", "tasks", "dropdown", "square outline", "ellipsis vertical"]
+
+const comingSoon = () => {
+    alert('Feature Coming Soon')
+}
+
 const Tools = (props) => {
 
     const sendComponent = (component) => {
@@ -38,6 +44,9 @@ const Tools = (props) => {
     }
 
     const handleClick = (data, event) => {
+        if (notyetImplemented.includes(event.icon)) {
+            comingSoon();
+        }
         sendComponent(event.component)
     }
 
