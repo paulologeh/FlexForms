@@ -11,9 +11,11 @@
 </h1>
 
 ## About
-Flexforms is a flexible form builder which can be used to build any form of your choice.
-## Usage
+Flexforms is a flexible form builder which can be used to build any form of your choice in any way you like.
+## Tutorial
 [![Watch the video](https://github.com/paulologeh/FlexForms/blob/master/public/flexforms.gif)](https://drive.google.com/file/d/1sGTRyLgMSAZS2wvASxWgZBG9mJWOsGRS/preview)
+<br/>
+<a href="https://drive.google.com/file/d/1sGTRyLgMSAZS2wvASxWgZBG9mJWOsGRS/preview">Click to watch video</a>
 <!-- <iframe src="https://drive.google.com/file/d/1sGTRyLgMSAZS2wvASxWgZBG9mJWOsGRS/preview" width="640" height="480" allowfullscreen><iframe> -->
 
 ## Example App
