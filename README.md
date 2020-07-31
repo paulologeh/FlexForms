@@ -4,7 +4,17 @@
 
 > Whether its to setup a guest list or to send out birthday/wedding invites and view the data collected, FlexForms has got you covered!
 
-[![App Taster](https://github.com/paulologeh/FlexForms/blob/master/public/flexforms.gif)
+![App Taster](https://github.com/paulologeh/FlexForms/blob/master/public/flexforms.gif)
+
+![Requires.io (branch)](https://img.shields.io/requires/github/pologeh/Flexforms/master)
+![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/paulologeh/FlexForms/pending/master)
+![GitHub top language](https://img.shields.io/github/languages/top/paulologeh/FlexForms)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/paulologeh/FlexForms)
+![GitHub issues](https://img.shields.io/github/issues/paulologeh/FlexForms)
+![GitHub issue/pull request detail](https://img.shields.io/github/issues/detail/state/paulologeh/FlexForms/1)
+![GitHub package.json version](https://img.shields.io/github/package-json/v/paulologeh/FlexForms)
+![Website](https://img.shields.io/website?down_color=red&down_message=offline&up_color=green&up_message=online&url=https%3A%2F%2Fpaulologeh.github.io%2FFlexForms%2F)
+![GitHub contributors](https://img.shields.io/github/contributors/paulologeh/FlexForms)
 
 ## Table of Contents
 
