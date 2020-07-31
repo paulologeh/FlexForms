@@ -1,3 +1,5 @@
+![FlexForms](https://github.com/paulologeh/FlexForms/blob/master/public/ff.png")
+
 # FlexForms 
 
 > Flexforms is a flexible form builder which can be used to build any form of your choice in any way you like.
