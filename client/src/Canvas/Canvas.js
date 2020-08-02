@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect, useContext } from 'react';
-import { Segment, Header, Button } from 'semantic-ui-react';
+import { Segment, Header } from 'semantic-ui-react';
 import { Store } from '../Store';
 import { isObjInvalid, getHeight, getWidth } from '../helpers';
 import Draggable from './Draggable';
@@ -100,7 +100,7 @@ const Canvas = (props) => {
         }
         addToStore(compProps)
         let newTool = React.createElement(props.canvasTool.tool, compProps, null)
-        newCanvasBody.push(<Draggable initialPos={{ x: 0, y: 0 }} key={counter}>{newTool}</Draggable>)
+        newCanvasBody.push(<Draggable initialPos={{ x: getWidth() * 0.38, y: getHeight() * 0.3 }} key={counter}>{newTool}</Draggable>)
         setCanvasBody(newCanvasBody)
     }
 
@@ -149,7 +149,6 @@ const Canvas = (props) => {
         <Segment padded>
             <Header as="h2">Canvas</Header>
             {canvasBody}
-            <Draggable initialPos={{ x: getWidth() * 0.4, y: getHeight() * 1.25 }} key='submit'><Button positive>Submit</Button></Draggable>
         </Segment>
     )
 }

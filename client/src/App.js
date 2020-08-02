@@ -61,6 +61,7 @@ const PanelMenu = (props) => {
           </Dropdown.Menu>
         </Dropdown>
         <Menu.Item>Version 1.0 (In development)</Menu.Item>
+        <Menu.Item>Server Status: {isObjInvalid(props.page) ? 'Down' : props.page}</Menu.Item>
       </Container>
     </Menu >
   )
@@ -71,11 +72,25 @@ class App extends Component {
   state = {
     canvasTool: null,
     clear: false,
-    toolToDelete: null
+    toolToDelete: null,
+    data: null
   }
 
+  callBackendAPI = async () => {
+    const response = await fetch('/express_backend');
+    const body = await response.json();
+
+    if (response.status !== 200) {
+      throw Error(body.message)
+    }
+    return body;
+  };
+
   componentDidMount() {
-    console.clear()
+    console.clear();
+    this.callBackendAPI()
+      .then(res => this.setState({ data: res.express }))
+      .catch(err => console.log(err));
   }
 
   getSelectedTool = (tool) => {
@@ -136,7 +151,7 @@ class App extends Component {
         <StoreProvider>
           <div>
             <div className="menu-header">
-              <PanelMenu callbackClear={this.callbackClear} />
+              <PanelMenu callbackClear={this.callbackClear} page={this.state.data} />
             </div>
             <div className="App">
               <Grid columns={2} padded>
