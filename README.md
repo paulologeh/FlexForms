@@ -1,4 +1,4 @@
-![FlexForms](https://github.com/paulologeh/FlexForms/blob/master/public/ff.png)
+![FlexForms](https://github.com/paulologeh/FlexForms/blob/master/client/public/ff.png)
 
 # FlexForms 
 
@@ -8,7 +8,7 @@
 
 <a href="https://paulologeh.github.io/FlexForms/">Visit Site</a>
 
-![App Taster](https://github.com/paulologeh/FlexForms/blob/master/public/flexforms.gif)
+![App Taster](https://github.com/paulologeh/FlexForms/blob/master/client/public/flexforms.gif)
 
 ![Requires.io (branch)](https://img.shields.io/requires/github/pologeh/Flexforms/master)
 ![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/paulologeh/FlexForms/pending/master)
@@ -31,7 +31,7 @@
 - [License](#license)
 
 ## Example App
-![example app](https://github.com/paulologeh/FlexForms/blob/master/public/exampleapp.png)
+![example app](https://github.com/paulologeh/FlexForms/blob/master/client/public/exampleapp.png)
 
 ## Setup
 No need to sign up!
