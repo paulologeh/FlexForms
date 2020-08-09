@@ -28,17 +28,11 @@ app.post('/api/publishForm', (request, response) => {
     response.json({ status: 'Success!' });
 })
 
-// app.get('/hello', (request, response) =>
-//     response.send('Hello! Get')
-// );
 
 app.get('/api/forms/:id', (request, response) => {
     console.log('getting form')
-    console.log(`${JSON.stringify(request.params)}`)
-    console.log(request.params.id)
     for (let i in savedForms) {
         if (savedForms[i].id === Number(request.params.id)) {
-            console.log('inside')
             console.log(savedForms[i]);
             response.json({ status: 'Success!', data: savedForms[i] });
             return;
@@ -46,17 +40,3 @@ app.get('/api/forms/:id', (request, response) => {
     }
     response.json({ status: 'Failed!', data: 'no such form' })
 });
-
-    // response.send(`Hello Get id: ${request.params.id}`)
-// );
-
-// app.post('/api/forms/:id', (request, response) => {
-//     const encrypted_id = request.params.id;
-//     const integer_id = encrypted_form_ids[encrypted_id];
-//     response.status(200).send(`The integer value for ${encrypted_id} is ${integer_id}!`);
-// })
-
-// to send data in body
-// app.post('/hello', (request, response) =>
-//     response.send(`Hello! Post ${request.body.name}`)
-// )

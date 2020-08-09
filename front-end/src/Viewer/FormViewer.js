@@ -12,10 +12,8 @@ const FormViewer = ({ match }) => {
     )
 
     const getFormData = async () => {
-        console.log()
         const response = await fetch(`/api/forms/${match.params.id}`)
         const data = await response.json();
-        console.log(data)
         setState(data.data.settings)
     }
 
