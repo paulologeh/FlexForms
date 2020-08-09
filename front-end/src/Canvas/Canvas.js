@@ -74,6 +74,7 @@ const Canvas = (props) => {
     const addToStore = (compProps) => {
         let newObj = { ...object_template }
         newObj.id = compProps.id
+        newObj.tool = compProps.tool
         let newStore = { ...store }
         newStore.array.push(newObj)
         updateStore(newStore)
@@ -94,9 +95,10 @@ const Canvas = (props) => {
         let compProps = {
             id: tempId,
             key: counter,
+            tool: props.canvasTool.tool.name,
             onToolClick: handleToolClick,
             getComponentPropsById: handleToolProps,
-            setComponentState: handleComponentState
+            setComponentState: handleComponentState,
         }
         addToStore(compProps)
         let newTool = React.createElement(props.canvasTool.tool, compProps, null)
@@ -145,10 +147,43 @@ const Canvas = (props) => {
         props.callbackDeleted(true);
     }
 
+    useEffect(
+        () => {
+            const fetchData = async () => {
+                handlePublish()
+            };
+            fetchData()
+        }, [props.publish]
+    )
+
+    const handlePublish = async () => {
+        if (isObjInvalid(props.publish) || props.publish === false) {
+            return
+        }
+
+        let store_copy = { ...store };
+        store_copy.array = store_copy.array.filter(obj => obj.id !== 'test');
+        delete store_copy.selectedTool;
+
+        const options = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(store_copy)
+        };
+        const response = await fetch('/api/publishForm', options)
+        const data = await response.json();
+        console.log(data)
+    }
+    // console.log(JSON.stringify(store))
+
     return (
-        <Segment padded>
+        <Segment padded >
             <Header as="h2">Canvas</Header>
-            {canvasBody}
+            <div id='current-canvas'>
+                {canvasBody}
+            </div>
         </Segment>
     )
 }

@@ -6,6 +6,10 @@ import ItemsPanel from './Items Panel/ItemsPanel';
 import Tools from './Tools/Tools';
 import { StoreProvider } from './Store';
 import { isObjInvalid } from './helpers';
+import LoginForm from './SampleForm';
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import FormViewer from './Viewer/FormViewer';
+
 
 const canvasStyle = { flexGrow: 1, height: '100%' };
 
@@ -33,6 +37,15 @@ const NotSuitableForMobile = () => {
   )
 }
 
+const NotFound = () => {
+  return (
+    <Segment secondary color='green' >
+      <Header as='h1' color='green'>Sorry Page Not Found!</Header>
+      <p>It looks like that page does not exist</p>
+    </Segment>
+  )
+}
+
 const PanelMenu = (props) => {
 
   const clearCanvas = () => {
@@ -47,17 +60,26 @@ const PanelMenu = (props) => {
     alert('Feature Coming Soon')
   }
 
+  const publishForm = () => {
+    props.callbackPublishForm(true)
+  }
+
   return (
     <Menu fixed='top' color='green' inverted>
       <Container>
         <Menu.Item as='a' header color='green'>FlexForms</Menu.Item>
         <Menu.Item as='a' onClick={reload}><Icon name='home' />Home</Menu.Item>
-        <Menu.Item as='a' onClick={comingSoon}>Templates</Menu.Item>
+        <Dropdown item simple text="Templates">
+          <Dropdown.Menu>
+            <Dropdown.Item><Link to='/sample-form' style={{ color: 'black' }}>Sample Form</Link></Dropdown.Item>
+            <Dropdown.Item onClick={comingSoon}>Load Templates</Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
         <Dropdown item simple text='Options'>
           <Dropdown.Menu>
             <Dropdown.Item onClick={comingSoon}>Save</Dropdown.Item>
             <Dropdown.Item onClick={clearCanvas}>Clear Canvas</Dropdown.Item>
-            <Dropdown.Item onClick={comingSoon}>Publish Form</Dropdown.Item>
+            <Dropdown.Item onClick={publishForm}>Publish Form</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
         <Menu.Item>Version 1.0 (In development)</Menu.Item>
@@ -67,30 +89,18 @@ const PanelMenu = (props) => {
   )
 }
 
-class App extends Component {
+class Home extends Component {
 
   state = {
     canvasTool: null,
     clear: false,
     toolToDelete: null,
-    data: null
+    data: null,
+    publish: false
   }
-
-  callBackendAPI = async () => {
-    const response = await fetch('/express_backend');
-    const body = await response.json();
-
-    if (response.status !== 200) {
-      throw Error(body.message)
-    }
-    return body;
-  };
 
   componentDidMount() {
     console.clear();
-    this.callBackendAPI()
-      .then(res => this.setState({ data: res.express }))
-      .catch(err => console.log(err));
   }
 
   getSelectedTool = (tool) => {
@@ -100,6 +110,17 @@ class App extends Component {
     }
     this.setState({ canvasTool: { tool } })
     return;
+  }
+
+  callbackPublishForm = (publish) => {
+    if (isObjInvalid(publish)) {
+      console.log('ERROR! -> Failed to publish');
+      return;
+    }
+    if (publish) {
+      console.log('Publishing');
+      this.setState({ publish: true });
+    }
   }
 
   callbackClear = (clear) => {
@@ -151,7 +172,11 @@ class App extends Component {
         <StoreProvider>
           <div>
             <div className="menu-header">
-              <PanelMenu callbackClear={this.callbackClear} page={this.state.data} />
+              <PanelMenu
+                callbackClear={this.callbackClear}
+                page={this.state.data}
+                callbackPublishForm={this.callbackPublishForm}
+              />
             </div>
             <div className="App">
               <Grid columns={2} padded>
@@ -172,6 +197,7 @@ class App extends Component {
                       callbackCleared={this.callbackCleared}
                       toolToDelete={this.state.toolToDelete}
                       callbackDeleted={this.callbackDeleted}
+                      publish={this.state.publish}
                     />
                   </Grid.Column>
                 </Grid.Row>
@@ -183,5 +209,24 @@ class App extends Component {
     }
   }
 }
+
+class App extends Component {
+
+  render() {
+    return (
+      <Router>
+        <div className="App">
+          <Switch>
+            <Route path="/" component={Home} exact />
+            <Route path="/sample-form" component={LoginForm} exact />
+            <Route path="/api/forms/:id" component={FormViewer} exact />
+            <Route component={NotFound} />
+          </Switch>
+        </div>
+      </Router>
+    )
+  }
+}
+
 
 export default App;

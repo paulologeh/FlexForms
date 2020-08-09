@@ -82,6 +82,8 @@ const ItemsPanel = (props) => {
         props.callbackToolToDelete(state.id)
     }
 
+
+
     return (
         <Segment secondary padded >
             <Container>
