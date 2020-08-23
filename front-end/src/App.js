@@ -71,7 +71,7 @@ const PanelMenu = (props) => {
         <Menu.Item as='a' onClick={reload}><Icon name='home' />Home</Menu.Item>
         <Dropdown item simple text="Templates">
           <Dropdown.Menu>
-            <Dropdown.Item><Link to='/sample-form' style={{ color: 'black' }}>Sample Form</Link></Dropdown.Item>
+            <Dropdown.Item><Link to={process.env.PUBLIC_URL + '/sample-form'} style={{ color: 'black' }}>Sample Form</Link></Dropdown.Item>
             <Dropdown.Item onClick={comingSoon}>Load Templates</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
@@ -217,9 +217,9 @@ class App extends Component {
       <Router>
         <div className="App">
           <Switch>
-            <Route path="/" component={Home} exact />
-            <Route path="/sample-form" component={LoginForm} exact />
-            <Route path="/api/forms/:id" component={FormViewer} exact />
+            <Route path={process.env.PUBLIC_URL + '/'} component={Home} exact />
+            <Route path={process.env.PUBLIC_URL + '/sample-form'} component={LoginForm} exact />
+            <Route path={process.env.PUBLIC_URL + '/api/forms/:id'} component={FormViewer} exact />
             <Route component={NotFound} />
           </Switch>
         </div>
