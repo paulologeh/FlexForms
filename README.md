@@ -1,4 +1,5 @@
 ![FlexForms](https://github.com/paulologeh/FlexForms/blob/master/client/public/ff.png)
+![FlexForms](./front-end/public/ff.png)
 
 # FlexForms 
 
