@@ -1,6 +1,4 @@
-![FlexForms](./front-end/public/ff.png)
-
-# FlexForms 
+<h1>FlexForms</h1>
 
 > Flexforms is a flexible form builder which can be used to build any form of your choice in any way you like.
 
