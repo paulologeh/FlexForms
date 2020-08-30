@@ -1,4 +1,3 @@
-![FlexForms](https://github.com/paulologeh/FlexForms/blob/master/client/public/ff.png)
 ![FlexForms](./front-end/public/ff.png)
 
 # FlexForms 
@@ -7,19 +6,15 @@
 
 > Whether its to setup a guest list or to send out birthday/wedding invites and view the data collected, FlexForms has got you covered!
 
-<a href="https://paulologeh.github.io/FlexForms/">Visit Site</a>
+<a href="https://paulologeh.github.io/FlexForms/">Click here to Visit Application</a>
 
-![App Taster](https://github.com/paulologeh/FlexForms/blob/master/client/public/flexforms.gif)
+![App Taster](./front-end/public/flexforms.gif)
 
-![Requires.io (branch)](https://img.shields.io/requires/github/pologeh/Flexforms/master)
-![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/paulologeh/FlexForms/pending/master)
 ![GitHub top language](https://img.shields.io/github/languages/top/paulologeh/FlexForms)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/paulologeh/FlexForms)
 ![GitHub issues](https://img.shields.io/github/issues/paulologeh/FlexForms)
 ![GitHub issue/pull request detail](https://img.shields.io/github/issues/detail/state/paulologeh/FlexForms/1)
-![GitHub package.json version](https://img.shields.io/github/package-json/v/paulologeh/FlexForms)
 ![Website](https://img.shields.io/website?down_color=red&down_message=offline&up_color=green&up_message=online&url=https%3A%2F%2Fpaulologeh.github.io%2FFlexForms%2F)
-![GitHub contributors](https://img.shields.io/github/contributors/paulologeh/FlexForms)
 
 ## Table of Contents
 
@@ -32,7 +27,7 @@
 - [License](#license)
 
 ## Example App
-![example app](https://github.com/paulologeh/FlexForms/blob/master/client/public/exampleapp.png)
+![example app](./front-end/public/exampleapp.png)
 
 ## Setup
 No need to sign up!
@@ -51,7 +46,7 @@ This is the area where you put together the elements of your form.
 This is used to edit individual tools.
 
 ## Tutorial
-<a href="https://drive.google.com/file/d/1sGTRyLgMSAZS2wvASxWgZBG9mJWOsGRS/preview">Click to watch video</a>
+<a href="https://drive.google.com/file/d/1sGTRyLgMSAZS2wvASxWgZBG9mJWOsGRS/preview">Click to watch Tutorial video</a>
 <!-- <p>use camo.github https://gist.github.com/fvcproductions/1bfc2d4aecb01a834b46</p> -->
 
 ## Documentation
@@ -61,9 +56,4 @@ This is used to edit individual tools.
 ** coming soon **
 
 ## Support
-email: help@road2logic.com
-
-## License
-[![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
-
-- **[MIT license](http://opensource.org/licenses/mit-license.php)**
+** coming soon **
