@@ -23,7 +23,6 @@ const ItemsPanel = (props) => {
     useEffect(
         () => {
             setSelectedProps();
-            // console.log(store)
         }, [store]
     )
 

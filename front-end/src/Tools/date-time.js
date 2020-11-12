@@ -45,7 +45,7 @@ const DateTime = (props) => {
                 trigger={<label style={{ padding: '1vmin' }}>{state.label}</label>}
             />
             <Input
-                style={{ maxWidth: '120px' }}
+                style={{ maxWidth: '160px' }}
                 type="datetime-local"
                 onChange={handleChange}
                 onClick={onToolClick}

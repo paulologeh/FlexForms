@@ -9,7 +9,6 @@ import Text from './text';
 import Textarea from './text-area';
 import DigitalInput from './digital-input';
 import Label from './static-label';
-import Submit from './submit';
 
 
 const toolsColumn1 = [
@@ -29,10 +28,10 @@ const toolsColumn2 = [
     { icon: "font", tool: "text-area", component: Textarea },
     { icon: "heading", tool: "static-label", component: Label },
     { icon: "dropdown", tool: "dropdown" },
-    { icon: "square outline", tool: "submit-button", component: Submit }
+    { icon: "square outline", tool: "layout" }
 ]
 
-const notyetImplemented = ["align justify", "clone outline", "tasks", "dropdown", "ellipsis vertical"]
+const notyetImplemented = ["align justify", "clone outline", "tasks", "dropdown", "ellipsis vertical", "square outline"]
 
 const comingSoon = () => {
     alert('Feature Coming Soon')

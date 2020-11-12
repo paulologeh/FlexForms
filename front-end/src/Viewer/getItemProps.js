@@ -1,9 +1,8 @@
-import { Input, Checkbox, Radio, Button, TextArea, Label } from 'semantic-ui-react';
+import { Input, Checkbox, Radio, TextArea, Label } from 'semantic-ui-react';
 import React from 'react'
 
 export function getItemProps(item) {
     console.log(item)
-    // props -> helpbox, tooltip, id, label, tool
     let x = getElement(item.tool)
     let y = getProps(item)
     return { element: x, props: y }
@@ -24,34 +23,47 @@ function getElement(tool) {
             return TextArea
         case 'Label':
             return Label
-        case 'Submit':
-            return Button
         default:
             return 'p'
     }
 }
 
+
 function getProps(item) {
     let tool = item.tool
     let props = {}
+
     if (tool === 'Time') {
-        props.type = 'time'
+        props.type = 'time';
+        props.style = { maxWidth: '100px' };
     }
     else if (tool === 'DateTime') {
         props.type = 'datetime-local'
+        props.style = { maxWidth: '160px' };
     }
     else if (tool === 'DigitalInput') {
         props.type = 'number'
+        props.style = { maxWidth: '100px' };
     }
     else if (tool === 'Text') {
         props.type = 'text'
     }
-    else {
-        props.children = <p>Example</p>
+    else if (tool === 'Textarea') {
+        props.style = { maxWidth: '200px' };
     }
-    if (item.label) {
-        props.label = item.label
+    else if (tool === 'Radio' || tool === 'Checkbox2') {
+        props.label = item.label;
     }
+    else if (tool === 'Label') {
+        props.children = [<p>{item.label}</p>]
+    }
+
+    if (!('style' in props)) {
+        props.style = {}
+    }
+    props.style['position'] = 'absolute';
+    props.style['left'] = item.pos.x + 'px';
+    props.style['top'] = item.pos.y + 'px';
 
     return props;
 }

@@ -26,13 +26,10 @@ const Text = (props) => {
     }
 
     const handleChange = (event, data) => {
-        console.log('changing')
         let newState = { ...state };
         newState.value = data.value;
         setState(newState);
     }
-
-    console.log(state)
 
     const onToolClick = () => {
         props.onToolClick(props.id, store, updateStore)
@@ -47,7 +44,7 @@ const Text = (props) => {
                 on='hover'
                 trigger={<label style={{ padding: '1vmin' }}>{state.label}</label>}
             />
-            <Input style={{ maxWidth: '100px' }} type="text" onClick={onToolClick} onChange={handleChange} value={state.value} />
+            <Input type="text" onClick={onToolClick} onChange={handleChange} value={state.value} />
             {state.helpbox !== "" ?
                 <Popup
                     content={state.helpbox}

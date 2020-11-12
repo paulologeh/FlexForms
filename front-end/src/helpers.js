@@ -21,3 +21,13 @@ export function getHeight() {
         document.documentElement.clientHeight
     );
 }
+
+export function getTextWidth(inputText) {
+    let canvas = document.createElement("canvas");
+    let context = canvas.getContext("2d");
+    context.font = "14px Lato";
+    let width = context.measureText(inputText).width;
+    let border = 5;
+    let padding = 7.93;
+    return Math.ceil(width + padding + border);
+} 

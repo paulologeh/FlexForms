@@ -31,8 +31,6 @@ const Checkbox2 = (props) => {
         props.setComponentState(storeObject, state, setState);
     }
 
-    // console.log(state)
-    // console.log(store)
 
     return (
         <>

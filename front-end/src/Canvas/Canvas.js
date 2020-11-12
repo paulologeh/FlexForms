@@ -34,6 +34,7 @@ const handleComponentState = (storeObject, localState, localSetState) => {
     }
     let keys = Object.keys(storeObject);
     for (let i in keys) {
+        // Update values except id and condition
         if (keys[i] === 'id' || keys[i] === 'conditions') {
             continue;
         }
@@ -102,7 +103,7 @@ const Canvas = (props) => {
         }
         addToStore(compProps)
         let newTool = React.createElement(props.canvasTool.tool, compProps, null)
-        newCanvasBody.push(<Draggable initialPos={{ x: getWidth() * 0.38, y: getHeight() * 0.3 }} key={counter}>{newTool}</Draggable>)
+        newCanvasBody.push(<Draggable initialPos={{ x: getWidth() * 0.38, y: getHeight() * 0.3 }} key={counter} targetId={tempId} >{newTool}</Draggable>)
         setCanvasBody(newCanvasBody)
     }
 
@@ -176,7 +177,8 @@ const Canvas = (props) => {
         const data = await response.json();
         console.log(data)
     }
-    // console.log(JSON.stringify(store))
+
+    // console.log(store)
 
     return (
         <Segment padded >

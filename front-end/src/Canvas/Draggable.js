@@ -1,5 +1,6 @@
 // https://stackoverflow.com/questions/20926551/recommended-way-of-making-react-component-div-draggable
 import React, { Component } from 'react';
+import { Store } from '../Store';
 
 class Draggable extends Component {
 
@@ -7,24 +8,41 @@ class Draggable extends Component {
         super(props);
         this.myRef = React.createRef();
         this.state = {
-            counter: this.props.counter,
             pos: this.props.initialPos,
             dragging: false,
             rel: null // position relative to the cursor
         };
     }
 
+    static contextType = Store;
+
     /*  we could get away with not having this (and just having the listeners on
      our div), but then the experience would be possibly be janky. If there's
      anything w/ a higher z-index that gets in the way, then you're toast,
      etc.*/
     componentDidUpdate(props, state) {
+
         if (this.state.dragging && !state.dragging) {
             document.addEventListener('mousemove', this.onMouseMove);
             document.addEventListener('mouseup', this.onMouseUp);
+            this.updateStorePosition()
+
         } else if (!this.state.dragging && state.dragging) {
             document.removeEventListener('mousemove', this.onMouseMove);
             document.removeEventListener('mouseup', this.onMouseUp);
+            this.updateStorePosition()
+        }
+    }
+
+    updateStorePosition = () => {
+        const [store, updateStore] = this.context;
+        let newStore = store;
+        for (let i in newStore.array) {
+            if (newStore.array[i].id === this.props.targetId) {
+                newStore.array[i].pos = this.state.pos;
+                updateStore(newStore);
+                break;
+            }
         }
     }
 
@@ -39,8 +57,6 @@ class Draggable extends Component {
                 y: e.pageY - pos.top
             }
         });
-        // e.stopPropagation();
-        // e.preventDefault();
     }
 
     onMouseUp = (e) => {
@@ -61,7 +77,6 @@ class Draggable extends Component {
         e.stopPropagation();
         e.preventDefault();
     }
-
 
     render() {
         return (
