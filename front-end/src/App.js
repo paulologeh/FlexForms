@@ -82,8 +82,8 @@ const PanelMenu = (props) => {
             <Dropdown.Item onClick={publishForm}>Publish Form</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
-        <Menu.Item>Version 1.0 (In development)</Menu.Item>
-        <Menu.Item>Server Status: {isObjInvalid(props.page) ? 'Down' : props.page}</Menu.Item>
+        <Menu.Item>Version 1.0 </Menu.Item>
+        <Menu.Item>Server Status: {isObjInvalid(props.page) ? 'Currently Unvailable' : props.page}</Menu.Item>
       </Container>
     </Menu >
   )

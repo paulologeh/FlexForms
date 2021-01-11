@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from 'react';
-import { Menu, Container, Form, Icon, Popup, Button } from 'semantic-ui-react';
+import { Menu, Container, Popup, Button } from 'semantic-ui-react';
 import { getItemProps } from './getItemProps';
 import { getTextWidth } from '../helpers';
 
